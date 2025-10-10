@@ -19,7 +19,7 @@ const Pagination = ({ pageNumber, info, updatePageNumber }) => {
 
   return (
     <>
-      <style jsx>
+      <style>
         {`
           a {
             color: white;

@@ -3,14 +3,34 @@ import "./App.css";
 
 import "bootstrap/dist/js/bootstrap";
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Search from "./components/Search/Search";
 import Card from "./components/Card/Card";
 import Pagination from "./components/Pagination/Pagination";
 import { Filter } from "./components/Filter/Filter";
-// import Navbar from "./components/Navbar/Navbar";
+import { Episodes } from "./Pages/Episodes";
+import { Location } from "./Pages/Location";
+import { Navbar } from "./components/Navbar/Navbar";
 
 function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/episodes" element={<Episodes />} />
+
+        <Route path="/location" element={<Location />} />
+      </Routes>
+    </Router>
+  );
+}
+
+const Home = () => {
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
   let [pageNumber, updatePageNumber] = useState(1);
@@ -57,6 +77,6 @@ function App() {
       />
     </div>
   );
-}
+};
 
 export default App;

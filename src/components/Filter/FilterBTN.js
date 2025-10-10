@@ -1,7 +1,7 @@
 export const FilterBTN = ({ input, task, updatePageNumber, index, name }) => {
   return (
     <div>
-      <style jsx>
+      <style>
         {`
           .x:checked + label {
             background-color: #0b5ed7;
@@ -20,13 +20,12 @@ export const FilterBTN = ({ input, task, updatePageNumber, index, name }) => {
           id={`${name}-${index}`}
         />
         <label
-          onClick={(x) => {
-            console.log(input);
+          onClick={() => {
             task(input);
             updatePageNumber(1);
           }}
           className="btn btn-outline-primary"
-          for={`${name}-${index}`}
+          htmlFor={`${name}-${index}`}
         >
           {" "}
           {input}{" "}
