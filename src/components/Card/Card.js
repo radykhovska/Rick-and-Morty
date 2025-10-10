@@ -1,6 +1,8 @@
 import styles from "./Card.module.scss";
 
-const Card = ({ results }) => {
+import { Link } from "react-router-dom";
+
+const Card = ({ page, results }) => {
   let display;
 
   if (results) {
@@ -15,7 +17,9 @@ const Card = ({ results }) => {
       const badgeTone = toneByStatus[status] || "bg-secondary";
 
       return (
-        <div
+        <Link
+          style={{ textDecoration: "none" }}
+          to={`${page}${id}`}
           key={id}
           className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark"
         >
@@ -36,7 +40,7 @@ const Card = ({ results }) => {
           >
             {status}
           </div>
-        </div>
+        </Link>
       );
     });
   } else {
